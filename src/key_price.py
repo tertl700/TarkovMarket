@@ -2,6 +2,10 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import img_processing
 import time
+import os
+
+if not os.path.exists('images'):
+    os.makedirs('images')
 
 driver = webdriver.Firefox()
 driver.get("https://tarkov-market.com/tag/keys")
