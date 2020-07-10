@@ -1,5 +1,5 @@
-from asyncio import get_event_loop, new_event_loop
-from src.item_price import main
+from asyncio import new_event_loop, get_running_loop, run
+from src.item_price import fetch_price
 from PIL import Image
 from pynput import keyboard
 from mss import mss
@@ -8,8 +8,9 @@ from mss import mss
 # on pg_up, get item_id and check item_price. on pg_down exit script
 def on_press(key):
     if key == keyboard.Key.page_up:
+        print("Searching...")
         screenshot()
-        new_event_loop().run_until_complete(main())
+        run(fetch_price())
 
 
 
