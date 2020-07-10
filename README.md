@@ -1,5 +1,5 @@
 # TarkovMarket
-Return key prices from tarkov-market.com in-game
+Return item prices from tarkov-market.com in-game
 
 # Getting started
 Install dependencies:
