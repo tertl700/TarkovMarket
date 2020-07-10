@@ -16,8 +16,10 @@ driver = webdriver.Firefox()
 driver.get("https://tarkov-market.com")
 print('Ready')
 
+
 # find search bar and enter text from img_processing
 def main():
+
     global driver
     
     search_bar = driver.find_element_by_css_selector("input[placeholder='Search'")
@@ -26,25 +28,31 @@ def main():
     time.sleep(2.5)
     
     try:
+
         item_price = driver.find_element_by_class_name('price-main')
         print(f'Flea: {item_price.text}')
         result = True
 
     except:
+
         print('No price detected')
         print('logged broken crop')
         result = False
 
     try:
+
         slot_price = driver.find_element_by_class_name('price-sec')
         print(f'Per Slot: {slot_price.text}')
 
     except:
-        try:
-            print(f'Per Slot: {item_price.text}')
-        except Exception:
-            pass
 
+        try:
+
+            print(f'Per Slot: {item_price.text}')
+
+        except Exception:
+
+            pass
 
     # trader = driver.find_element_by_class_name('item-card')
     # print(trader)
