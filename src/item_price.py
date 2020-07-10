@@ -13,6 +13,10 @@ async def fetch_price():
     item_name = run()
     print(f"item name: {item_name}")
 
+    await page.evaluate("""
+    () => { const input = document.querySelector('.search input[type="text"]');
+    input.value = '';
+    }""")
     await search_bar.type(item_name)
     await page.waitForXPath(f"//span[contains(text(),'{item_name}')]")
     main_price = await get_text_from_selector("span.price-main")
