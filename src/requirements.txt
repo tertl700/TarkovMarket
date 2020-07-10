@@ -1,0 +1,9 @@
+mss==6.0.0
+numpy==1.19.0
+opencv-python==4.3.0.36
+Pillow==7.2.0
+pynput==1.6.8
+pytesseract==0.3.4
+selenium==3.141.0
+six==1.15.0
+urllib3==1.25.9
