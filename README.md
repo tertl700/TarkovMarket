@@ -2,8 +2,6 @@
 Return key prices from tarkov-market.com in-game
 
 # Getting started
-Install tesseract and clone repo
-
 Install dependencies:
 ```
 pip install -r requirements.txt
