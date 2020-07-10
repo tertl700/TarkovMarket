@@ -1,10 +1,10 @@
 appdirs==1.4.4
+keyboard==0.13.5
 mss==6.0.0
 numpy==1.19.0
 opencv-python==4.3.0.36
 Pillow==7.2.0
 pyee==7.0.2
-pynput==1.6.8
 pyppeteer==0.2.2
 pytesseract==0.3.4
 six==1.15.0
