@@ -51,7 +51,7 @@ def crop(path):
 # read text from image using OCR through tesseract
 def ocr():
 
-    # crop('images/screenshot.png')
+    crop('images/screenshot.png')
     text = pytesseract.image_to_string(Image.open('images/cropped.png'))
     text = format_text(text)
     text = resolve_ocr_errors(text)

@@ -15,13 +15,22 @@ async def fetch_price():
 
     await search_bar.type(item_name)
     await page.waitForXPath(f"//span[contains(text(),'{item_name}')]")
-    price_element = await page.waitForSelector("span.price-main")
-    price = await page.evaluate(
-        "(element) => element.textContent", price_element
+    main_price = await get_text_from_selector("span.price-main")
+    price_per_slot = await get_text_from_selector("span.price-sec")
+    print(f"Price is: {main_price}")
+    print(f"Price per slot: {price_per_slot}")
+
+async def get_text_from_selector(selector):
+    page = globals.page
+    element = await page.querySelector(selector)
+    if not element:
+        return "N/A"
+
+    text = await page.evaluate(
+        "(element) => element.textContent", element
     )
 
-    print(f"Price is: {price}")
-
+    return text.strip(' \n\r')
 
 # trader = driver.find_element_by_class_name('item-card')
 # print(trader)
