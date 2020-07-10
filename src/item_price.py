@@ -1,60 +1,36 @@
-from selenium import webdriver
-import img_processing
-import time
+from src.img_processing import run
 import os
-
+from pyppeteer import launch
 
 # make directory for storing images if it does not exist in path
-if not os.path.exists('images'):
-    os.makedirs('images')
-
-# hide mozilla
-os.environ['MOZ_HEADLESS'] = '1'
-
-# start selenium driver for firefox and open main page of tarkov-market
-driver = webdriver.Firefox()
-driver.get("https://tarkov-market.com")
-print('Ready')
+if not os.path.exists("images"):
+    os.makedirs("images")
 
 
-# find search bar and enter text from img_processing
-def main():
+async def main():
+    browser = await launch(
+        handleSIGINT=False,
+        handleSIGTERM=False,
+        handleSIGHUP=False
+    )
+    page = await browser.newPage()
+    await page.goto("https://tarkov-market.com/")
 
-    global driver
-    
-    search_bar = driver.find_element_by_css_selector("input[placeholder='Search'")
-    search_bar.clear()
-    search_bar.send_keys(img_processing.run())
-    time.sleep(2.5)
-    
-    try:
+    search_bar = await page.querySelector('.search input[type="text"]')
+    item_name = run()
+    print(f"item name: {item_name}")
 
-        item_price = driver.find_element_by_class_name('price-main')
-        print(f'Flea: {item_price.text}')
-        result = True
+    await search_bar.type(item_name)
+    await page.waitFor(1000)
+    price_element = await page.querySelector("span.price-main")
+    price = await price_element.evaluate(
+        "(element) => element.textContent", price_element
+    )
 
-    except:
+    print(price)
 
-        print('No price detected')
-        print('logged broken crop')
-        result = False
 
-    try:
+# trader = driver.find_element_by_class_name('item-card')
+# print(trader)
 
-        slot_price = driver.find_element_by_class_name('price-sec')
-        print(f'Per Slot: {slot_price.text}')
-
-    except:
-
-        try:
-
-            print(f'Per Slot: {item_price.text}')
-
-        except Exception:
-
-            pass
-
-    # trader = driver.find_element_by_class_name('item-card')
-    # print(trader)
-
-    img_processing.log_image(result)
+# img_processing.log_image(result)

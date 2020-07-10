@@ -1,4 +1,5 @@
-import item_price
+from asyncio import get_event_loop, new_event_loop
+from src.item_price import main
 from PIL import Image
 from pynput import keyboard
 from mss import mss
@@ -6,16 +7,10 @@ from mss import mss
 
 # on pg_up, get item_id and check item_price. on pg_down exit script
 def on_press(key):
-
     if key == keyboard.Key.page_up:
-
         screenshot()
-        item_price.main()
+        new_event_loop().run_until_complete(main())
 
-    elif key == keyboard.Key.page_down:
-
-        item_price.driver.quit()
-        exit()
 
 
 # screenshot main monitor using mss, convert to PIL image for processing
@@ -29,9 +24,3 @@ def screenshot():
         img = Image.frombytes('RGB', sct_img.size, sct_img.bgra, 'raw', 'BGRX')
 
         img.save('images/screenshot.png')
-
-
-# Collect events until released
-with keyboard.Listener(on_press=on_press) as listener:
-
-    listener.join()

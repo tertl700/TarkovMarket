@@ -7,7 +7,7 @@ import pytesseract
 from PIL import Image, ImageOps
 
 # load template image
-template = cv2.imread('template.png', 0)
+template = cv2.imread('images/template.png', 0)
 
 
 # match template to screenshot, identify where item text is and return top_left and bottom_right
@@ -49,13 +49,13 @@ def crop(path):
 
 
 # read text from image using OCR through tesseract
-def ocr(path):
+def ocr():
 
     crop('images/screenshot.png')
-    text = pytesseract.image_to_string(Image.open(path))
+    text = pytesseract.image_to_string(Image.open('images/cropped.png'))
+    print(f"raw text {text}")
     text = format_text(text)
     text = resolve_ocr_errors(text)
-
     return text
 
 
@@ -95,7 +95,7 @@ def resolve_ocr_errors(text):
 # print and return text results from image
 def run():
 
-    text = ocr('images/cropped.png')
+    text = ocr()
     print(chr(27) + "[2J")
     print(text)
     return text
