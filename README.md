@@ -1,19 +1,23 @@
 # TarkovMarket
 Return key prices from tarkov-market.com in-game
 
-## Usage
-Clone
+# Getting started
+Install tesseract and clone repo
 
-`cd TarkovMarket/src`
+Install dependencies:
+```
+pip install -r requirements.txt
+```
+Run:
+```
+python item_id.py
+```
 
-Install dependencies
+# Controls
+Right click item in game, select inspect:
+![inspect_item](https://i.imgur.com/NNp4VzZ.png)
 
-`pipenv install`
+Press PgUp and the console will display pricing information:
+![console_output](https://i.imgur.com/vLrOMg0.png)
 
-Run
-
-`pipenv run python key_id.py`
-
-Bring up examine window for selected key in Tarkov and press PgUp
-
-PgDn to exit script
+Press PgDn to exit script
