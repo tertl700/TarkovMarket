@@ -7,7 +7,7 @@ async def main():
         # Collect events until released
         print ("Running...")
         while True:
-            keyboard.wait('left shift')
+            keyboard.wait('ctrl+\\')
             screenshot.capture()
             await item_price.fetch_price()
     except Exception as e:
