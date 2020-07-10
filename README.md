@@ -24,7 +24,7 @@ Press PgDn to exit script
 
 ## Authors
 
-* **Joe McGinley** - *Fork - added functionality to use with all items* - [jomcgi](https://github.com/jomcgi)
+* **Joe McGinley** - *Fork owner - added functionality to use with all items* - [jomcgi](https://github.com/jomcgi)
 * **Tommy** - *initial project owner - created base scripts that inspired this fork* - [https://github.com/tertl700]
 
 See also the list of [contributors](https://github.com/Jomcgi/TarkovMarket/contributors) who participated in this project.
