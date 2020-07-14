@@ -1,6 +1,7 @@
 from PIL import Image
 from mss import mss
 
+
 # screenshot main monitor using mss, convert to PIL image for processing
 def capture():
 

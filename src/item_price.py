@@ -24,6 +24,7 @@ async def fetch_price():
     print(f"Price is: {main_price}")
     print(f"Price per slot: {price_per_slot}")
 
+
 async def get_text_from_selector(selector):
     page = globals.page
     element = await page.querySelector(selector)

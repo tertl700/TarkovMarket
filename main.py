@@ -1,11 +1,13 @@
 import asyncio
 import keyboard
 from src import globals, screenshot, item_price
+
+
 async def main():
     try:
         await globals.init()
         # Collect events until released
-        print ("Running...")
+        print("Running...")
         while True:
             keyboard.wait('ctrl+\\')
             screenshot.capture()
