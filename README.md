@@ -16,7 +16,7 @@ Right click item in game, select inspect:
 
 ![inspect_item](https://i.imgur.com/As27sJf.png)
 
-Press CTRL + \ and the console will display pricing information:
+Press CTRL + Z and the console will display pricing information:
 
 ![console_output](https://i.imgur.com/vLrOMg0.png)
 
