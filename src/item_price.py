@@ -20,7 +20,7 @@ async def fetch_price():
     if not await does_item_exist(page, item_name):
         print(f"Could not find item: {item_name}")
         return
-    
+
     main_price = await get_text_from_selector("span.price-main")
     price_per_slot = await get_text_from_selector("span.price-sec")
     print(f"Item name: {item_name}")
