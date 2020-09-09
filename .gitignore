@@ -1,4 +1,6 @@
-__pycache__/
-images/
-
-geckodriver.log
+.vscode
+.idea
+venv
+images/cropped.png
+images/screenshot.png
+**__pycache__**
